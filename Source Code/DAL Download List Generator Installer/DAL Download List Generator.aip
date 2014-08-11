@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT type="Advanced Installer" version="1.9" modules="professional" RootPath=".">
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="CTRLS" Value="2"/>
+    <ROW Property="ProductCode" Value="{DA7CF07E-4985-46E6-9EA5-00B8592558CE}"/>
+    <ROW Property="ARPPRODUCTICON" Value="controlPanelIcon_1.exe"/>
+    <ROW Property="DialogBitmap" Value="installer_background_dialog.jpg"/>
+    <ROW Property="Manufacturer" Value="Craig Lotter"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="RUNAPPLICATION" Value="1"/>
+    <ROW Property="ProductName" Value="DAL Download List Generator 1.0"/>
+    <ROW Property="ALLUSERS" Value="2"/>
+    <ROW Property="ARPCONTACT" Value="0833085018"/>
+    <ROW Property="BannerBitmap" Value="installer_background.jpg"/>
+    <ROW Property="ProductVersion" Value="1.0.5"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS"/>
+    <ROW Property="UpgradeCode" Value="{141ED4CF-0AAE-44C3-8B80-BE9E90256220}"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" Directory_Parent="" DefaultDir="SourceDir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="DAL_Download_List_Generator.exe" ComponentId="{31AE2BFC-1D01-4E58-A7ED-0B802942D3DB}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="DAL_Download_List_Generator.exe" FullKeyPath="TARGETDIR\DAL Download List Generator.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Feature_Parent="" Title="MainFeature" Description="Description" Display="2" Level="1" Directory_="TARGETDIR" Attributes="0" Components="DAL_Download_List_Generator.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="DAL_Download_List_Generator.exe" Component_="DAL_Download_List_Generator.exe" FileName="DALDow~1.exe|DAL Download List Generator.exe" Version="" Language="" Attributes="" SourcePath="..\DAL Download List Generator\obj\Release\DAL Download List Generator.exe" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_LaunchApp" Type="194" Source="viewer.exe" Target="[#DAL_Download_List_Generator.exe]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR" Type="307" Source="TARGETDIR" Target="[ProgramFilesFolder]\[ProductName]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="UpgradeCode" VersionMin="" VersionMax="ProductVersion" Language="" Attributes="1025" Remove=""/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiMergeModsComponent">
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="DAL_Download_List_Generator_1.0" Directory_="SHORTCUTDIR" Name="DALDow~1.0|DAL Download List Generator 1.0" Component_="DAL_Download_List_Generator.exe" Target="[TARGETDIR]DAL Download List Generator.exe" Arguments="" Description="" Hotkey="0" Icon_="controlPanelIcon_1.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+    <ROW Shortcut="Uninstall_DAL_Download_List_Generator" Directory_="SHORTCUTDIR" Name="Uninst~1|Uninstall DAL Download List Generator" Component_="DAL_Download_List_Generator.exe" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Description="" Hotkey="0" Icon_="SystemFolder_msiexec.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="SystemFolder_msiexec.exe" SourcePath="&lt;uninstall.ico&gt;" Index="0"/>
+    <ROW Name="controlPanelIcon_1.exe" SourcePath="..\DAL Download List Generator\Images\DAP_Icon.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="installer_background.jpg" SourcePath="Images\installer_background.jpg"/>
+    <ROW Name="installer_background_dialog.jpg" SourcePath="Images\installer_background_dialog.jpg"/>
+    <ROW Name="viewer.exe" SourcePath="&lt;viewer.exe&gt;"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ATTRIBUTE name="Start" value="WelcomeDlg FolderDlg VerifyReadyDlg"/>
+    <ATTRIBUTE name="Progress" value="ProgressDlg"/>
+    <ATTRIBUTE name="End" value="ExitDialog"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
+    <ROW DisplayName=".NET Framework" SetupFileUrl="http://www.microsoft.com/downloads/details.aspx?FamilyID=262d25e3-f589-4842-8157-034d1e7cf3a3&amp;displaylang=en" Location="1" ExactSize="23698" TargetOS="2" SearchType="0" SearchString="[SystemFolder]mscoree.dll" VerMin="1.0" VerMax="" ComLine="dotnetfx.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiMediaComponent">
+    <ATTRIBUTE name="InstallationType" value="1"/>
+    <ATTRIBUTE name="MediaSize" value="0"/>
+    <ATTRIBUTE name="Compress" value="1"/>
+    <ATTRIBUTE name="Package" value="6"/>
+    <ATTRIBUTE name="PackageName" value="Release\DAL Download List Generator Installer"/>
+    <ATTRIBUTE name="IconPath" value="..\DAL Download List Generator\Images\DAP_Icon.ico?0"/>
+  </COMPONENT>
+</DOCUMENT>
